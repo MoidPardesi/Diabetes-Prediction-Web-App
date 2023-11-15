@@ -5,7 +5,7 @@ import streamlit as st
 from joblib import load
 
 # loading the saved model
-loaded_model = load('D:/Dissertation/random_forest_model.joblib')
+loaded_model = load('App/GradientBoostingClassifier.joblib')
 
 
 # creating a function for Prediction
