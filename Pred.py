@@ -3,9 +3,31 @@ import pickle
 import pandas as pd
 import streamlit as st
 from joblib import load
+import requests
+import tempfile
 
-# loading the saved model
-loaded_model = load('https://themajorisinclusivecentre.com/mlp.joblib')
+# Function to load the model from a URL
+def load_model_from_url(url):
+    # Send a GET request to the URL
+    response = requests.get(url)
+    # Raise an exception if the request was unsuccessful
+    response.raise_for_status()
+
+    # Create a temporary file to save the downloaded content
+    with tempfile.NamedTemporaryFile(suffix='.joblib', delete=False) as tmp_file:
+        # Write the content of the response to the temporary file
+        tmp_file.write(response.content)
+        # Load the model from the temporary file
+        loaded_model = load(tmp_file.name)
+
+    return loaded_model
+
+# URL of the model
+model_url = 'https://themajorisinclusivecentre.com/mlp.joblib'
+
+# Loading the model
+loaded_model = load_model_from_url(model_url)
+
 
 
 # creating a function for Prediction
