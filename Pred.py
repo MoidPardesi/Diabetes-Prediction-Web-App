@@ -5,7 +5,7 @@ import streamlit as st
 from joblib import load
 
 # loading the saved model
-loaded_model = load('')
+loaded_model = load('https://drive.google.com/file/d/14jh3wGPYvoJ2nT-NCOq5yP-P2luP_NyE/view?usp=drive_link')
 
 
 # creating a function for Prediction
