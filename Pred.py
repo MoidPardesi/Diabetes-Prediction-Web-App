@@ -1,32 +1,26 @@
-import numpy as np
-import pickle
+import requests
+from joblib import load
 import pandas as pd
 import streamlit as st
-from joblib import load
-import requests
-import tempfile
 
-# Function to load the model from a URL
-def load_model_from_url(url):
-    # Send a GET request to the URL
+# Function to download and save the model
+def download_model(url, filename):
     response = requests.get(url)
-    # Raise an exception if the request was unsuccessful
-    response.raise_for_status()
-
-    # Create a temporary file to save the downloaded content
-    with tempfile.NamedTemporaryFile(suffix='.joblib', delete=False) as tmp_file:
-        # Write the content of the response to the temporary file
-        tmp_file.write(response.content)
-        # Load the model from the temporary file
-        loaded_model = load(tmp_file.name)
-
-    return loaded_model
+    if response.status_code == 200:
+        with open(filename, 'wb') as file:
+            file.write(response.content)
+    else:
+        raise Exception('Failed to download file')
 
 # URL of the model
 model_url = 'https://themajorisinclusivecentre.com/mlp.joblib'
+model_filename = 'local_mlp.joblib'
 
-# Loading the model
-loaded_model = load_model_from_url(model_url)
+# Download and save the model
+download_model(model_url, model_filename)
+
+# Loading the saved model
+loaded_model = load(model_filename)
 
 
 
