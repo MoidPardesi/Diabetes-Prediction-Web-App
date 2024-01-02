@@ -14,7 +14,7 @@ def download_model(url, filename):
 
 # URL of the model
 model_url = 'https://themajorisinclusivecentre.com/mlp.joblib'
-model_filename = 'local_mlp.joblib'
+model_filename = 'mlp.joblib'
 
 # Download and save the model
 download_model(model_url, model_filename)
