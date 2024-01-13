@@ -12,16 +12,10 @@ def download_model(url, filename):
     else:
         raise Exception('Failed to download file')
 
-# URL of the model
-model_url = 'https://themajorisinclusivecentre.com/mlp.joblib'
-model_filename = 'mlp.joblib'
 
-# Download and save the model
-download_model(model_url, model_filename)
 
 # Loading the saved model
-loaded_model = load(model_filename)
-
+loaded_model = joblib.load(open('GradientBoostingClassifier.joblib', 'rb'))
 
 
 # creating a function for Prediction
