@@ -1,6 +1,7 @@
 import requests
 from joblib import load
 import pandas as pd
+import joblib
 import streamlit as st
 
 # Function to download and save the model
