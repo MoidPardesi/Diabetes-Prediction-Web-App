@@ -10,7 +10,7 @@ The project involved cleaning and visualizing extensive health data to understan
 Data Cleaning: Removal of duplicates and correction of inconsistencies.
 Visualization: Utilization of bar charts, heatmaps, box plots, and density plots.
 Machine Learning: Implementation of Random Forests, Gradient Boosting Models, and MLPs.
-Web Application: Development of a Streamlit app to assess personal diabetes risk, available here.
+Web Application: Development of a Streamlit app to assess personal diabetes risk, available "https://diabetess.streamlit.app/#diabetes-prediction-web-app".
 
 **Impact**
 This work demonstrates the use of machine learning to interpret health data and provides a foundation for further research in data science and healthcare. The web application serves as a practical tool for public health awareness and decision-making
